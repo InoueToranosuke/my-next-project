@@ -1,15 +1,8 @@
 import styles from "./page.module.css"
-import Image from "next/image";
-
-type News = {
-  id: string;
-  title: string;
-  category: {
-    name: string;
-  };
-  publishedAt: string;
-  createdAt: string;
-};
+import  Image from "next/image";
+import NewsList from "@/app/_components/NewsList";
+import ButtonLink from "@/app/_components/ButtonLink";
+import { News } from "@/app/_libs/microcms";
 
 const data: {
   contents: News[] } = {
@@ -64,7 +57,8 @@ export default function Home() {
 
       <section className={styles.news}>
         <h2 className={styles.newsTitle}>News</h2>
-        <ul>
+        <NewsList news={sliceData} />
+        {/* <ul>
           {sliceData.map((article) => (
             <li key = {article.id} className={styles.list}>
               <div className={styles.link}>
@@ -94,7 +88,10 @@ export default function Home() {
               </div>
             </li>
           ))}          
-        </ul>
+        </ul> */}
+        <div className={styles.newsLink}>
+          <ButtonLink href="/news">もっと見る</ButtonLink>
+        </div>
       </section>
     </>
   );
