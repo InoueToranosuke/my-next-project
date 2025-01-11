@@ -16,10 +16,10 @@ export default function Article({ data }: Props) {
       <p className={styles.description}>{data.description}</p>
       <div className={styles.meta}>
         <Link
-        href={`/news/category/${data.category.id}`}
-        className={styles.categoryLink}
+          href={`/news/category/${data.category.id}`}
+          className={styles.categoryLink}
         >
-        <Category category={data.category} />
+          <Category category={data.category} />
         </Link>
         <Date date={data.publishedAt ?? data.createdAt} />
       </div>
